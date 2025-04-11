@@ -13,8 +13,8 @@
 # limitations under the License.
 
 # [START calendar_quickstart]
-import datetime
-import os.path
+import datetime as dt
+import os
 
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
@@ -53,7 +53,7 @@ def main():
     service = build("calendar", "v3", credentials=creds)
 
     # Call the Calendar API
-    now = datetime.datetime.now(tz=datetime.timezone.utc).isoformat() + "Z"  # 'Z' indicates UTC time
+    now = dt.datetime.now(tz=dt.timezone.utc).isoformat()
     print("Getting the upcoming 10 events")
     events_result = (
         service.events()
